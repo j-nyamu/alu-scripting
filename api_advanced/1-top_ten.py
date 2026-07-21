@@ -15,7 +15,7 @@ def top_ten(subreddit):
     If the subreddit is invalid, prints None.
     """
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {"User-Agent": "alu-scripting:top_ten:v1.0 (by /u/yourusername)"}
+    headers = {"User-Agent": "python:alu.top_ten:v1.0 (by /u/Brenda-Maina)"}
     params = {"limit": 10}
 
     response = requests.get(
@@ -29,6 +29,6 @@ def top_ten(subreddit):
         print(None)
         return
 
-    data = response.json().get("data", {}).get("children", [])
-    for post in data:
+    results = response.json().get("data", {}).get("children", [])
+    for post in results:
         print(post.get("data", {}).get("title"))
