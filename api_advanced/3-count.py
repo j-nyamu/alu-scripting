@@ -25,4 +25,3 @@ def count_words(subreddit, word_list, after=None, counts={}):
     for word, count in sorted_counts:
         if count > 0:
             print("{}: {}".format(word, count))
-            
